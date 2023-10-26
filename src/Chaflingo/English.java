@@ -1,5 +1,7 @@
 package Chaflingo;
 
+import java.util.Scanner;
+
 public class English extends Tools{
 
     private final int loongLine;
@@ -86,5 +88,38 @@ public class English extends Tools{
         HeaderPrint();
 
         exerciseSentence.exercise(oraciones, respuestas);
+    }
+
+    public void Menu() {
+        Scanner scanner = new Scanner(System.in);
+
+        int response;
+
+        do {
+
+            ClearConsole();
+            HeaderPrint();
+
+            System.out.print("\n\n\t[1]Vocabulario\n\t[2]Practica\n\t[3]Salir\n");
+            System.out.print("> ");
+            response = scanner.nextInt();
+
+            switch (response) {
+                case 1:
+                    Vocabulario();
+                    break;
+
+                case 2:
+                    Sentence();
+                    break;
+
+                case 3:
+                    System.out.println("Saliendo...");
+                    break;
+
+                default:
+                    System.out.println("No esta esa opción\n");
+            }
+        } while (!(response == 3));
     }
 }
